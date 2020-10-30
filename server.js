@@ -1,6 +1,6 @@
-//___________________
-//Dependencies
-//___________________
+//========================================\\
+//               Dependances              \\
+//========================================\\
 const express = require("express");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
@@ -15,6 +15,8 @@ const PORT = process.env.PORT || 3000;
 //___________________
 //Database
 //___________________
+//
+const weightData = require("./models/Schema.js");
 // How to connect to the database either via heroku or locally
 const MONGODB_URI =
   process.env.MONGODB_URI || "mongodb://localhost:27017/" + `temp`;
@@ -30,9 +32,9 @@ db.on("disconnected", () => console.log("mongo disconnected"));
 // open the connection to mongo
 db.on("open", () => {});
 
-//___________________
-//Middleware
-//___________________
+//========================================\\
+//               Middleware               \\
+//========================================\\
 
 //use public folder for static assets
 app.use(express.static("public"));
@@ -44,15 +46,64 @@ app.use(express.json()); // returns middleware that only parses JSON - may or ma
 //use method override
 app.use(methodOverride("_method")); // allow POST, PUT and DELETE from a form
 
-//___________________
-// Routes
-//___________________
-//localhost:3000
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+//========================================\\
+//               Routes                   \\
+//========================================\\
+//localhost:3000/
+//index
+app.get("/index", (req, res) => {
+  weightData.find({}, (error, allWeight) => {
+    res.render("index.ejs", {
+      weightData: allWeight,
+    });
+  });
 });
 
-//___________________
-//Listener
-//___________________
+//new
+app.get("/new", (req, res) => {
+  res.render("new.ejs");
+});
+
+//create
+app.post("/index/", (req, res) => {
+  weightData.create(req.body, (error, createdData) => {
+    res.redirect("/");
+  });
+});
+
+//edit
+app.get("/index/:id/edit", (req, res) => {
+  weightData.findByIdAndUpdate(req.params.id, (error, foundWeightDate) => {
+    res.render("edit.ejs", {
+      weightData: foundWeightDate,
+    });
+  });
+});
+
+//update
+app.put("/:id", (req, res) => {
+  weightData.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+    (error, updatedWeightData) => {
+      res.redirect("/index");
+    }
+  );
+});
+
+//DESTROY
+app.delete("/:id", (req, res) => {
+  weightData.findByIdAndRemove(
+    req.params.id,
+    { useFindAndModify: false },
+    (err, data) => {
+      res.redirect("/index");
+    }
+  );
+});
+
+//========================================\\
+//               listener                 \\
+//========================================\\
 app.listen(PORT, () => console.log("Listening on port:", PORT));
