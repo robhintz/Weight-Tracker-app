@@ -73,7 +73,7 @@ app.post("/index", (req, res) => {
 
 //edit
 app.get("/index/:id/edit", (req, res) => {
-  weightData.findByIdAndUpdate(req.params.id, (error, foundWeightData) => {
+  weightData.findById(req.params.id, (err, foundWeightData) => {
     res.render("edit.ejs", {
       weightData: foundWeightData,
     });
@@ -81,7 +81,7 @@ app.get("/index/:id/edit", (req, res) => {
 });
 
 //update
-app.put("/:id", (req, res) => {
+app.put("index/:id", (req, res) => {
   weightData.findByIdAndUpdate(
     req.params.id,
     req.body,
