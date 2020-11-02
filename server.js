@@ -16,7 +16,6 @@ const PORT = process.env.PORT || 3000;
 //Database
 //___________________
 //
-const weightData = require("./models/Schema.js");
 // How to connect to the database either via heroku or locally
 const MONGODB_URI =
   process.env.MONGODB_URI || "mongodb://localhost:27017/" + `temp`;
@@ -46,82 +45,8 @@ app.use(express.json()); // returns middleware that only parses JSON - may or ma
 //use method override
 app.use(methodOverride("_method")); // allow POST, PUT and DELETE from a form
 
-//========================================\\
-//               Routes                   \\
-//========================================\\
-//localhost:3000/
-//index
-app.get("/index", (req, res) => {
-  weightData.find({}, (error, allWeight) => {
-    res.render("index.ejs", {
-      weightData: allWeight,
-    });
-  });
-});
-
-//new
-app.get("/index/new", (req, res) => {
-  res.render("new.ejs");
-});
-
-//post
-app.post("/index", (req, res) => {
-  weightData.create(req.body, (error, createdData) => {
-    res.redirect("/index");
-  });
-});
-
-//edit
-app.get("/index/:id/edit", (req, res) => {
-  weightData.findById(req.params.id, (err, foundWeightData) => {
-    res.render("edit.ejs", {
-      weightData: foundWeightData,
-    });
-  });
-});
-
-//update
-app.put("/index/:id", (req, res) => {
-  weightData.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    { new: true },
-    (error, updatedWeightData) => {
-      res.redirect("/index");
-    }
-  );
-});
-
-//show
-app.get("/index/:id", (req, res) => {
-  weightData.findById(req.params.id, (error, foundWeightData) => {
-    res.render("show.ejs", {
-      weightData: foundWeightData,
-    });
-  });
-});
-
-//DESTROY
-app.delete("/index/:id", (req, res) => {
-  weightData.findByIdAndRemove(
-    req.params.id,
-    {
-      useFindAndModify: false,
-    },
-    (err, data) => {
-      res.redirect("/index");
-    }
-  );
-});
-// app.delete("/:id", (req, res) => {
-//   weightData.findByIdAndRemove(
-//     req.params.id,
-//     { useFindAndModify: false },
-//     (err, data) => {
-//       res.redirect("/index");
-//     }
-//   );
-// });
+const weightDataController = require("./controllers/weightData.js");
+app.use("/index", weightDataController);
 
 //========================================\\
 //               listener                 \\
