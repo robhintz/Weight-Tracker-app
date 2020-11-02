@@ -81,7 +81,7 @@ app.get("/index/:id/edit", (req, res) => {
 });
 
 //update
-app.put("index/:id", (req, res) => {
+app.put("/index/:id", (req, res) => {
   weightData.findByIdAndUpdate(
     req.params.id,
     req.body,
