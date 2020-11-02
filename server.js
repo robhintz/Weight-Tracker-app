@@ -102,15 +102,26 @@ app.get("/index/:id", (req, res) => {
 });
 
 //DESTROY
-app.delete("/:id", (req, res) => {
+app.delete("/index/:id", (req, res) => {
   weightData.findByIdAndRemove(
     req.params.id,
-    { useFindAndModify: false },
+    {
+      useFindAndModify: false,
+    },
     (err, data) => {
       res.redirect("/index");
     }
   );
 });
+// app.delete("/:id", (req, res) => {
+//   weightData.findByIdAndRemove(
+//     req.params.id,
+//     { useFindAndModify: false },
+//     (err, data) => {
+//       res.redirect("/index");
+//     }
+//   );
+// });
 
 //========================================\\
 //               listener                 \\
