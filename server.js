@@ -60,22 +60,22 @@ app.get("/index", (req, res) => {
 });
 
 //new
-app.get("/new", (req, res) => {
+app.get("/index/new", (req, res) => {
   res.render("new.ejs");
 });
 
-//create
-app.post("/index/", (req, res) => {
+//post
+app.post("/index", (req, res) => {
   weightData.create(req.body, (error, createdData) => {
-    res.redirect("/");
+    res.redirect("/index");
   });
 });
 
 //edit
 app.get("/index/:id/edit", (req, res) => {
-  weightData.findByIdAndUpdate(req.params.id, (error, foundWeightDate) => {
+  weightData.findByIdAndUpdate(req.params.id, (error, foundWeightData) => {
     res.render("edit.ejs", {
-      weightData: foundWeightDate,
+      weightData: foundWeightData,
     });
   });
 });
@@ -90,6 +90,15 @@ app.put("/:id", (req, res) => {
       res.redirect("/index");
     }
   );
+});
+
+//show
+app.get("/index/:id", (req, res) => {
+  weightData.findById(req.params.id, (error, foundWeightData) => {
+    res.render("show.ejs", {
+      weightData: foundWeightData,
+    });
+  });
 });
 
 //DESTROY
