@@ -15,7 +15,7 @@ users.post("/", (req, res) => {
   );
   User.create(req.body, (err, createdUser) => {
     console.log("user is created", createdUser);
-    res.redirect("/");
+    res.redirect("/index");
   });
 });
 

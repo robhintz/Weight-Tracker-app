@@ -7,6 +7,9 @@
 </head>
 <body>
     index page
+    <nav>
+        <%- include ('partials/nav.ejs') %>
+    </nav>
     <ul>
     <% for (let i = 0 ; i < weightData.length ; i++) { %>
         <li>
@@ -21,7 +24,6 @@
         </li>
         <% } %>
     </ul>
-    <a href = "/index/new/">New</a>
 
 </body>
 </html>
