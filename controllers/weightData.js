@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const weightData = require("../models/Schema.js");
+const methodOverride = require("method-override");
+router.use(methodOverride("_method"));
 
 //========================================\\
 //               Routes                   \\
