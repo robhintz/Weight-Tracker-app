@@ -41,7 +41,7 @@ sessions.post("/", (req, res) => {
         res.redirect("/index/");
       } else {
         // passwords do not match
-        res.send('<a href="/"> password does not match </a>');
+        res.send('<a href="/users/"> password does not match </a>');
       }
     }
   });
@@ -49,7 +49,7 @@ sessions.post("/", (req, res) => {
 
 sessions.delete("/", (req, res) => {
   req.session.destroy(() => {
-    res.redirect("/");
+    res.redirect("/users");
   });
 });
 

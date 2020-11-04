@@ -1,5 +1,15 @@
 <ul class="right">
   <li><a href = "/index/new/">New entry</a></li>
     <li><a href="/users/new">Sign Up</a> </li>
-    <!-- <li><a href="/sessions/new">Log In</a> </li> -->
+    <li><a href="/sessions/login">Login</a> </li>
+    <form action="/sessions?_method=DELETE" method="POST">
+      <input type="submit" value="Log Out" class="btn-small red" />
+    </form>
+    <div>
+      <% if (currentUser) {  %>
+      Welcome <%= currentUser.username %>!
+      <% } else { %>
+          how did you get here? 
+      <% } %>
+  </div>
 </ul>

@@ -11,6 +11,7 @@ router.get("/", (req, res) => {
   weightData.find({}, (error, allWeight) => {
     res.render("index.ejs", {
       weightData: allWeight,
+      currentUser: req.session.currentUser,
     });
   });
 });
