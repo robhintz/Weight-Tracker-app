@@ -63,7 +63,8 @@ app.use("/index", weightDataController);
 const userController = require("./controllers/users.js");
 app.use("/users", userController);
 
-const sessionsController = require("./controllers/sessions_controller.js");
+//
+const sessionsController = require("./controllers/sessions.js");
 app.use("/sessions", sessionsController);
 
 //========================================\\
