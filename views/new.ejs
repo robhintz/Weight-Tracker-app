@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <%- include ('partials/header.ejs') %>
 </head>
 <body>
     <nav>
         <%- include ('partials/nav.ejs') %>
     </nav>
-    New page
+
+<div class="centered">
     <form action="/index" method="POST">
-    date<input type="text" name="date">
-    weight<input type="number" name="weight">
-    comments<input type="text" name="comment">
-    <input type="submit" name="Add to database">
+        <p>date: </p>
+    <p><input type="date" name="date"></p>
+        <p>weight: </p>
+    <p><input type="number" name="weight"></p>
+        <p>comment: </p>
+    <p><input type="text" name="comment"></p>
+
+    <p><input type="submit" name="Add to database"></p>
+
     </form>
+</div>
+
 </body>
 </html>

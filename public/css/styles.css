@@ -7,7 +7,9 @@ body {
 .right {
   text-align: right;
 }
-
+.left {
+  text-align: left;
+}
 .Row {
   display: table;
   width: 100%; /*Optional*/
@@ -15,4 +17,7 @@ body {
 }
 .Column {
   display: table-cell;
+}
+.marginLeft {
+  margin-left: 50%;
 }
