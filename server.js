@@ -55,6 +55,10 @@ app.use(
   })
 );
 
+//========================================\\
+//               Routes                   \\
+//========================================\\
+
 //set up to have routes in controllers/weightData
 const weightDataController = require("./controllers/weightData.js");
 app.use("/index", weightDataController);

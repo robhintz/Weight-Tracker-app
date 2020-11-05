@@ -27,7 +27,13 @@ router.get("/new", (req, res) => {
 
 //post
 router.post("/", (req, res) => {
-  weightData.create(req.body, (error, createdData) => {
+  var data = {
+    date: req.body.date,
+    weight: req.body.weight,
+    comment: req.body.comment,
+    username: req.session.currentUser.username,
+  };
+  weightData.create(data, (error, createdData) => {
     res.redirect("/index");
   });
 });
