@@ -21,3 +21,6 @@ body {
 .marginLeft {
   margin-left: 50%;
 }
+.bulletless {
+  list-style-type: none;
+}

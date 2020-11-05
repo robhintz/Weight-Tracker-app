@@ -64,6 +64,7 @@ router.get("/:id", (req, res) => {
   weightData.findById(req.params.id, (error, foundWeightData) => {
     res.render("show.ejs", {
       weightData: foundWeightData,
+      currentUser: req.session.currentUser,
     });
   });
 });

@@ -3,14 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>edit page</title>
+    <%- include ('partials/header.ejs') %>
 </head>
 <body>
-    Show page
-    <%= weightData.weight %>
-    <a href="/index/<%= weightData.id %>/edit">edit</a>
-    <form action="/index/<%= weightData.id %>?_method=DELETE" method="POST">
-    <input type="submit" value="DELETE"/>
-    </form>
+    <nav>
+        <%- include ('partials/nav.ejs') %>
+    </nav>
+<ul class="bulletless">
+    <li>
+        date:
+    </li>
+    <li>
+        <%= weightData.date %>
+    </li>
+    <br>
+    <li>
+        weight: 
+    </li>
+    <li>
+        <%= weightData.weight %>
+    </li>
+    <% if (weightData.comment) { %>
+    <br>
+    <li>
+        comment:
+    </li>
+    <li>
+        <%= weightData.comment %>
+    </li>
+    <% } %>
+    <br>
+    <li>
+        <button>
+            <a href="/index/<%= weightData.id %>/edit">edit</a>
+        </button>
+    </li>
+    <br>
+    <li>
+        <form action="/index/<%= weightData.id %>?_method=DELETE" method="POST">
+            <input type="submit" value="DELETE"/>
+            </form>
+    </li>
+</ul>
+
 </body>
 </html>
