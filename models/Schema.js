@@ -4,6 +4,7 @@ const weightSchema = new mongoose.Schema({
   date: { type: String, required: true },
   weight: { type: Number, required: true },
   comment: { type: String },
+  username: { type: String },
 });
 
 const weightData = mongoose.model("Data", weightSchema);

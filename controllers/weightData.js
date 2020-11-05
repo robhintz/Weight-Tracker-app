@@ -8,7 +8,9 @@ const weightData = require("../models/Schema.js");
 //localhost:3000/
 //index
 router.get("/", (req, res) => {
-  weightData.find({}, (error, allWeight) => {
+  user = req.session.currentUser;
+  console.log(user);
+  weightData.find({ username: user.username }, (error, allWeight) => {
     res.render("index.ejs", {
       weightData: allWeight,
       currentUser: req.session.currentUser,
@@ -18,7 +20,9 @@ router.get("/", (req, res) => {
 
 //new
 router.get("/new", (req, res) => {
-  res.render("new.ejs");
+  res.render("new.ejs", {
+    currentUser: req.session.currentUser,
+  });
 });
 
 //post
