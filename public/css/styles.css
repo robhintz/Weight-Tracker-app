@@ -4,3 +4,15 @@ body {
 .centered {
   text-align: center;
 }
+.right {
+  text-align: right;
+}
+
+.Row {
+  display: table;
+  width: 100%; /*Optional*/
+  table-layout: fixed; /*Optional*/
+}
+.Column {
+  display: table-cell;
+}

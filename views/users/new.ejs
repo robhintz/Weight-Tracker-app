@@ -7,16 +7,16 @@
     <header><%- include ('../partials/header.ejs') %></header>
 </head>
 <body>
-    <h1 class="jumbotron">New User</h1>
+    <h1 class="jumbotron">Create new user</h1>
     <div class="centered">
     <form action="/users" method="POST" enctype="application/json">
 
-       <p> username<input type="text" name="username" required/> </p>
+       <p> username: <input type="text" name="username" required/> </p>
         
 
-       <p> password<input type="password" name="password" /> </p>
+       <p> password: <input type="password" name="password" /> </p>
         <br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Create">
       <form>
     </div>
 </body>
