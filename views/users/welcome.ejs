@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    Welcome page
-    <br>
-    <a href="/users/new">Sign up</a>
-    <a href="/sessions/login">Login</a>
+    <header><%- include ('../partials/header.ejs') %></header>
+    <h1 class="jumbotron">Weight Tracker</h1>
+    <div class="row align-items-center justify-content-center">
+        <button>
+            <a href="/users/new">Sign up</a>
+        </button>
+        <button>
+            <a href="/sessions/login">Login</a>
+        </button>
+</div>
 </body>
 </html>

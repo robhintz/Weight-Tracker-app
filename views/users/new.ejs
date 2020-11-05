@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <header><%- include ('../partials/header.ejs') %></header>
 </head>
 <body>
-    <h1>New User</h1>
-    <div class= "container">
+    <h1 class="jumbotron">New User</h1>
+    <div class="centered">
     <form action="/users" method="POST" enctype="application/json">
 
-        username<input type="text" name="username" required/>
+       <p> username<input type="text" name="username" required/> </p>
         
 
-        password<input type="password" name="password" />
+       <p> password<input type="password" name="password" /> </p>
         <br>
         <input type="submit" value="Submit">
       <form>
