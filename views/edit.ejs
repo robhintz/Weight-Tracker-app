@@ -4,13 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>edit page</title>
+    <%- include ('partials/header.ejs') %>
 </head>
 <body>
+    <nav>
+        <%- include ('partials/nav.ejs') %>
+    </nav>
+<div class="centered">
     <form action="/index/<%= weightData.id %>?_method=PUT" method="POST">
-    date: <input type="text" name="date" value="<%= weightData.date %>">
-    weight: <input type="number" name="weight" value="<%= weightData.weight %>">
-    comment: <input type="text" name="comment" value="<%= weightData.comment %>">
+        
+
+    <p>date: </p> 
+    <p><input type="text" name="date" value="<%= weightData.date %>"></p>
+
+
+    <p>weight: </p>
+    <p><input type="number" name="weight" value="<%= weightData.weight %>"></p>
+
+    <p>comment: </p>
+    <p><input type="text" name="comment" value="<%= weightData.comment %>"></p>
+
     <input type="submit" value="edit">
+
+
     </form>
+</div>
+
 </body>
 </html>

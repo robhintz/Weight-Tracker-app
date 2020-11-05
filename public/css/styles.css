@@ -12,8 +12,8 @@ body {
 }
 .Row {
   display: table;
-  width: 100%; /*Optional*/
-  table-layout: fixed; /*Optional*/
+  width: 100%;
+  table-layout: fixed;
 }
 .Column {
   display: table-cell;

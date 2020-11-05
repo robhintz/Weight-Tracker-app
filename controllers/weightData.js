@@ -43,6 +43,7 @@ router.get("/:id/edit", (req, res) => {
   weightData.findById(req.params.id, (err, foundWeightData) => {
     res.render("edit.ejs", {
       weightData: foundWeightData,
+      currentUser: req.session.currentUser,
     });
   });
 });
