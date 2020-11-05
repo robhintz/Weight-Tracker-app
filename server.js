@@ -71,6 +71,10 @@ app.use("/users", userController);
 const sessionsController = require("./controllers/sessions.js");
 app.use("/sessions", sessionsController);
 
+app.get("/", (req, res) => {
+  res.redirect("/users/");
+});
+
 //========================================\\
 //               listener                 \\
 //========================================\\
