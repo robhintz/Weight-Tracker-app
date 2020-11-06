@@ -25,7 +25,15 @@ body {
   list-style-type: none;
 }
 
-ul li {
+ul .index li {
   display: inline-block;
   margin: 2.5%;
+  text-align: center;
+  border-radius: 5px;
+  background-color: lightgrey;
+}
+
+ul .index li:hover {
+  opacity: 0.8;
+  background-color: darkgray;
 }

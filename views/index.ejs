@@ -11,13 +11,13 @@
         <%- include ('partials/nav.ejs') %>
     </nav>
 
-    <ul class="index">
+    <ul>
     <% for (let i = 0 ; i < weightData.length ; i++) { %>
+        <a class="index" href="/index/<%= weightData[i].id %>">
         <li>
-            <p> <a href="/index/<%= weightData[i].id %>"><%= weightData[i].date %> </a> </p>
+            <p> <%= weightData[i].date %>  </p>
             <p> <%= weightData[i].weight %> </p>
-        </li>
-        <% } %>
+        </li>  <% } %> </a>
     </ul>
 
 </body>
