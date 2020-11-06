@@ -11,7 +11,7 @@
         <%- include ('partials/nav.ejs') %>
     </nav>
 
-    <ul>
+    <ul class="index">
     <% for (let i = 0 ; i < weightData.length ; i++) { %>
         <li>
             <p> <a href="/index/<%= weightData[i].id %>"><%= weightData[i].date %> </a> </p>

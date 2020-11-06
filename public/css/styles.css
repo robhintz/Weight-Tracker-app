@@ -24,3 +24,8 @@ body {
 .bulletless {
   list-style-type: none;
 }
+
+ul li {
+  display: inline-block;
+  margin: 2.5%;
+}
