@@ -22,8 +22,6 @@ sessions.post("/", (req, res) => {
 
   // Step 1 Look for the username
   User.findOne({ username: req.body.username }, (err, foundUser) => {
-    console.log(req.body.password);
-    console.log(foundUser.password);
     // Database error
     if (err) {
       console.log("error occured", err);
